@@ -38,6 +38,7 @@ return array(
             array(
                 'label' => 'Module',
                 'route' => 'zfcadmin/subject',
+                'resource' => 'controller/Subject\Controller\Subject',
                 'pages' => array(
                     array(
                         'label' => 'Add',
@@ -61,7 +62,7 @@ return array(
     'bjyauthorize' => array(
         'guards' => array(
             'BjyAuthorize\Guard\Controller' => array(
-                array('controller' => 'Subject\Controller\Subject', 'roles' => array()),
+                array('controller' => 'Category\Controller\Category', 'roles' => array('admin')),
             ),
         ),
     ),
