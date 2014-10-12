@@ -22,6 +22,7 @@ $config = array(
         // Override
         'User',
         'Admin',
+        'Authorization',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

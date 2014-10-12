@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-15 01:03+0100\n"
-"PO-Revision-Date: 2014-08-15 01:04+0100\n"
+"POT-Creation-Date: 2014-10-12 02:21+0100\n"
+"PO-Revision-Date: 2014-10-12 02:21+0100\n"
 "Last-Translator: Evan Coury <me@evancoury.com>\n"
 "Language-Team: ZF Contributors <zf-devteam@zend.com>\n"
 "Language: de_DE\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../..\n"
 
@@ -104,6 +104,10 @@ msgstr "Es ist keine Ausnahme verfügbar"
 msgid "An error occurred"
 msgstr "Ein Fehler ist aufgetreten"
 
+#: ../../Authorization/view/error/403.phtml:1
+msgid "403 Forbidden"
+msgstr "Fehler 403 - Zugriff verweigert"
+
 #: ../../Category/view/category/category/add.phtml:2
 #: ../../Category/view/category/category/index.phtml:8
 msgid "Add new category"
@@ -129,13 +133,11 @@ msgstr "Kategorien"
 
 #: ../../Category/view/category/category/index.phtml:25
 #: ../../Subject/view/subject/subject/index.phtml:27
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/list.phtml:42
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #: ../../Category/view/category/category/index.phtml:28
 #: ../../Subject/view/subject/subject/index.phtml:30
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/list.phtml:47
 msgid "Delete"
 msgstr "Löschen"
 
@@ -168,29 +170,29 @@ msgstr "Name"
 msgid "Abbreviation"
 msgstr "Abkürzung"
 
-#: ../../User/view/zfc-user/user/changeemail.phtml:3
+#: ../../User/view/zfc-user/user/changeemail.phtml:2
 #, php-format
 msgid "Change Email for %s"
 msgstr "E-Mail ändern für %s"
 
-#: ../../User/view/zfc-user/user/changeemail.phtml:7
+#: ../../User/view/zfc-user/user/changeemail.phtml:4
 msgid "Email address changed successfully."
 msgstr "Deine E-Mail Adresse wurde erfolgreich geändert"
 
-#: ../../User/view/zfc-user/user/changeemail.phtml:9
+#: ../../User/view/zfc-user/user/changeemail.phtml:6
 msgid "Unable to update your email address. Please try again."
 msgstr "Deine E-Mail Adresse konnte nicht geändert werden"
 
-#: ../../User/view/zfc-user/user/changepassword.phtml:3
+#: ../../User/view/zfc-user/user/changepassword.phtml:1
 #, php-format
 msgid "Change Password for %s"
 msgstr "Ändere Passwort für %s"
 
-#: ../../User/view/zfc-user/user/changepassword.phtml:7
+#: ../../User/view/zfc-user/user/changepassword.phtml:4
 msgid "Password changed successfully."
 msgstr "Passwort erfolgreich geändert"
 
-#: ../../User/view/zfc-user/user/changepassword.phtml:9
+#: ../../User/view/zfc-user/user/changepassword.phtml:6
 msgid "Unable to update your password. Please try again."
 msgstr ""
 "Dein Passwort konnte nicht geändert werden. Bitte versuche es nocheinmal."
@@ -215,37 +217,32 @@ msgstr "Passwort ändern"
 msgid "Sign In"
 msgstr "Login"
 
-#: ../../User/view/zfc-user/user/login.phtml:34
+#: ../../User/view/zfc-user/user/login.phtml:17
 msgid "Not registered?"
 msgstr "Noch nicht registriert?"
 
-#: ../../User/view/zfc-user/user/login.phtml:37
+#: ../../User/view/zfc-user/user/login.phtml:20
 msgid "Sign up!"
 msgstr "Melde dich an!"
 
-#: ../../User/view/zfc-user/user/register.phtml:2
+#: ../../User/view/zfc-user/user/register.phtml:1
 msgid "Register"
 msgstr "Registrierung"
 
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/create.phtml:8
-msgid "Create user"
-msgstr "Benutzer erstellen"
+#~ msgid "Create user"
+#~ msgstr "Benutzer erstellen"
 
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/edit.phtml:9
-msgid "Edit user"
-msgstr "Benutzer bearbeiten"
+#~ msgid "Edit user"
+#~ msgstr "Benutzer bearbeiten"
 
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/list.phtml:2
-msgid "Users"
-msgstr "Benutzer"
+#~ msgid "Users"
+#~ msgstr "Benutzer"
 
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/list.phtml:18
-msgid "Add new user"
-msgstr "Neuer Benutzer hinzufügen"
+#~ msgid "Add new user"
+#~ msgstr "Neuer Benutzer hinzufügen"
 
-#: ../../UserAdmin/view/zfc-user-admin/user-admin/list.phtml:46
-msgid "Really delete user?"
-msgstr "Benutzer wirklich löschen?"
+#~ msgid "Really delete user?"
+#~ msgstr "Benutzer wirklich löschen?"
 
 #~ msgid "Sign Out"
 #~ msgstr "Ausloggen"
