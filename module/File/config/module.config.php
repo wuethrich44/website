@@ -36,8 +36,9 @@ return array(
     'navigation' => array(
         'admin' => array(
             array(
-                'label' => 'Upload',
+                'label' => 'Dateien',
                 'route' => 'zfcadmin/file',
+                'resource' => 'controller/File\Controller\File',
                 'pages' => array(
                     array(
                         'label' => 'Add',
@@ -61,7 +62,9 @@ return array(
     'bjyauthorize' => array(
         'guards' => array(
             'BjyAuthorize\Guard\Controller' => array(
-                array('controller' => 'File\Controller\File', 'roles' => array()),
+                array('controller' => 'File\Controller\File', 'action' => array('add'), 'roles' => array('user')),
+                array('controller' => 'File\Controller\File', 'action' => array('index', 'edit', 'delete'),
+                    'roles' => array('admin')),
             ),
         ),
     ),
