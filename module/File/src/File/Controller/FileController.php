@@ -3,10 +3,6 @@
 namespace File\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\File\Transfer\Adapter\Http;
-use Zend\Validator\File\Size;
-use Zend\Validator\File\Extension;
-use Zend\Filter\File\Rename;
 use File\Model\File;
 use File\Form\UploadForm;
 
@@ -43,29 +39,7 @@ class FileController extends AbstractActionController {
 
             $form->setData($data);
 
-            $uploadPath = $this->getOptions()->getUploadFolderPath();
-
-            // Validatoren
-            $size = new Size(array(
-                'max' => $this->getOptions()->getMaxFileSizeInByte()
-            ));
-
-            $extension = new Extension($this->getOptions()->getAllowedFileExtensions());
-
-            // Filter für Zufallsnamen
-            if ($this->options->getRandomizeFileName()) {
-                $rename = new Rename(array(
-                    'target' => $uploadPath . '/file',
-                    'randomize' => true,
-                ));
-            } else {
-                $rename = null;
-            }
-
-            //TODO Add to factory
-            $adapter = new Http();
-            $adapter->setValidators(array($size, $extension));
-            $adapter->setFilters(array($rename));
+            $adapter = $this->getServiceLocator()->get('File\Adapter\Http');
 
             if (!$adapter->isValid()) {
                 $dataError = $adapter->getMessages();
@@ -77,9 +51,6 @@ class FileController extends AbstractActionController {
                 header('HTTP/1.1 500 Internal Server Error');
                 exit();
             } else {
-
-                $adapter->setDestination($uploadPath);
-
                 if ($adapter->receive()) {
                     $subjectID = $data['subject'];
                     $categoryID = $data['category'];
