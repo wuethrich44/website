@@ -170,7 +170,7 @@ class DownloadController extends AbstractActionController {
     public function getOptions() {
         if (!$this->options) {
             $sm = $this->getServiceLocator();
-            $this->options = $sm->get('Download\ModuleOptions');
+            $this->options = $sm->get('Download\Options\ModuleOptions');
         }
         return $this->options;
     }

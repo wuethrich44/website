@@ -143,7 +143,7 @@ class FileController extends AbstractActionController {
     public function getOptions() {
         if (!$this->options) {
             $sm = $this->getServiceLocator();
-            $this->options = $sm->get('File\ModuleOptions');
+            $this->options = $sm->get('File\Options\ModuleOptions');
         }
         return $this->options;
     }

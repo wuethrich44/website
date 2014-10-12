@@ -25,7 +25,7 @@ class Module {
                 'File\Model\File' => 'File\Model\File'
             ),
             'factories' => array(
-                'File\ModuleOptions' => 'File\Factory\ModuleOptionsFactory',
+                'File\Options\ModuleOptions' => 'File\Factory\ModuleOptionsFactory',
                 'File\Adapter\Http' => 'File\Factory\HttpFactory',
                 'File\Model\FileTable' => 'File\Model\Factory\FileTableFactory',
                 'File\Model\ResultSet' => 'File\Model\Factory\ResultSetFactory',

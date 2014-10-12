@@ -14,7 +14,7 @@ class HttpFactory implements FactoryInterface
 
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $options = $serviceLocator->get('File\ModuleOptions');
+        $options = $serviceLocator->get('File\Options\ModuleOptions');
 
         $size      = new Size(array('max' => $options->getMaxFileSizeInByte()));
         $extension = new Extension($options->getAllowedFileExtensions());

@@ -21,7 +21,7 @@ class Module {
     public function getServiceConfig() {
         return array(
             'factories' => array(
-                'Download\ModuleOptions' => 'Download\Factory\ModuleOptionsFactory',
+                'Download\Options\ModuleOptions' => 'Download\Factory\ModuleOptionsFactory',
             ),
         );
     }
