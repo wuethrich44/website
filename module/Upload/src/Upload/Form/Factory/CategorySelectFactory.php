@@ -1,10 +1,10 @@
 <?php
 
-namespace File\Form\Factory;
+namespace Upload\Form\Factory;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
-use File\Form\Element\CategorySelect;
+use Upload\Form\Element\CategorySelect;
 
 class CategorySelectFactory implements FactoryInterface
 {

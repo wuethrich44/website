@@ -1,10 +1,10 @@
 <?php
 
-namespace File\Form\Factory;
+namespace Upload\Form\Factory;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
-use File\Form\Element\SubjectSelect;
+use Upload\Form\Element\SubjectSelect;
 
 class SubjectSelectFactory implements FactoryInterface
 {

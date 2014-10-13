@@ -1,9 +1,9 @@
 <?php
-namespace File\Factory;
+namespace Upload\Factory;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
-use File\Options\ModuleOptions;
+use Upload\Options\ModuleOptions;
 
 class ModuleOptionsFactory implements FactoryInterface
 {
@@ -11,6 +11,6 @@ class ModuleOptionsFactory implements FactoryInterface
     {
         $config = $serviceLocator->get('Config');
         
-        return new ModuleOptions(isset($config['file']) ? $config['file'] : array());
+        return new ModuleOptions(isset($config['upload']) ? $config['upload'] : array());
     }
 }

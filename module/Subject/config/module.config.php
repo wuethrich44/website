@@ -62,7 +62,7 @@ return array(
     'bjyauthorize' => array(
         'guards' => array(
             'BjyAuthorize\Guard\Controller' => array(
-                array('controller' => 'Category\Controller\Category', 'roles' => array('admin')),
+                array('controller' => 'Subject\Controller\Subject', 'roles' => array('admin')),
             ),
         ),
     ),

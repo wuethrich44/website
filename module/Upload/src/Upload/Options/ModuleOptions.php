@@ -1,6 +1,6 @@
 <?php
 
-namespace File\Options;
+namespace Upload\Options;
 
 use Zend\Stdlib\AbstractOptions;
 

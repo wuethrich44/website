@@ -10,6 +10,7 @@ $config = array(
         // Custom modules
         'Application',
         'Download',
+        'Upload',
         'Subject',
         'Category',
         'File',

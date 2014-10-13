@@ -1,6 +1,6 @@
 <?php
 
-namespace File\Form;
+namespace Upload\Form;
 
 use Zend\Form\Form;
 

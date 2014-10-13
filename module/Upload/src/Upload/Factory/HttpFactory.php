@@ -1,6 +1,6 @@
 <?php
 
-namespace File\Factory;
+namespace Upload\Factory;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
@@ -14,7 +14,7 @@ class HttpFactory implements FactoryInterface
 
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $options = $serviceLocator->get('File\Options\ModuleOptions');
+        $options = $serviceLocator->get('Upload\Options\ModuleOptions');
 
         $size      = new Size(array('max' => $options->getMaxFileSizeInByte()));
         $extension = new Extension($options->getAllowedFileExtensions());

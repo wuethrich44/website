@@ -1,12 +1,13 @@
 <?php
 
-namespace File;
+namespace Upload;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\FormElementProviderInterface;
 
-class Module implements ConfigProviderInterface, AutoloaderProviderInterface, ServiceProviderInterface
+class Module implements ConfigProviderInterface, AutoloaderProviderInterface, ServiceProviderInterface, FormElementProviderInterface
 {
 
     public function getConfig()
@@ -29,14 +30,20 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface, Se
     public function getServiceConfig()
     {
         return array(
-            'invokables' => array(
-                'File\Model\File' => 'File\Model\File'
-            ),
             'factories' => array(
-                'File\Model\FileTable' => 'File\Model\Factory\FileTableFactory',
-                'File\Model\ResultSet' => 'File\Model\Factory\ResultSetFactory',
-                'File\Model\TableGateway' => 'File\Model\Factory\TableGatewayFactory',
+                'Upload\Options\ModuleOptions' => 'Upload\Factory\ModuleOptionsFactory',
+                'Upload\Adapter\Http' => 'Upload\Factory\HttpFactory',
             )
+        );
+    }
+
+    public function getFormElementConfig()
+    {
+        return array(
+            'factories' => array(
+                'SubjectSelect' => 'Upload\Form\Factory\SubjectSelectFactory',
+                'CategorySelect' => 'Upload\Form\Factory\CategorySelectFactory',
+            ),
         );
     }
 }

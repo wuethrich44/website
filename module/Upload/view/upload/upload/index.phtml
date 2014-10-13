@@ -1,0 +1,45 @@
+<?php
+echo $this->headLink()->prependStylesheet($this->basePath() . '/css/dropzone.css')
+                      ->prependStylesheet($this->basePath() . '/css/chosen.min.css')
+                      ->appendStylesheet($this->basePath() . '/css/chosen-bootstrap.min.css');
+                      
+
+?>
+
+<ol class="breadcrumb">
+    <li><a href="<?= $this->url('download') ?>"><span class="glyphicon glyphicon-home"></span></a></li>
+    <li class="active">Upload</li>
+</ol>
+
+<div class="panel panel-default">
+
+    <?php
+    $form->setAttribute('action', $this->url('zfcadmin/upload', array('action' => 'index')));
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+    ?>
+    <div class="form-group">
+        <?= $this->formRow($form->get('subject')) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formRow($form->get('category')) ?>
+    </div>
+
+    <div class="fallback">
+        <input name="file" type="file" multiple />
+    </div>
+
+    <?= $this->form()->closeTag() ?>
+</div>
+
+<script>
+$("#subject").chosen();
+$("#category").chosen();
+</script>
+
+<?php
+    $this->inlineScript()->prependFile($this->basePath('/js/dropzone.min.js'))
+                         ->prependFile($this->basePath('/js/chosen.jquery.min.js'));
+?>

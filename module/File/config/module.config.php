@@ -41,11 +41,6 @@ return array(
                 'resource' => 'controller/File\Controller\File',
                 'pages' => array(
                     array(
-                        'label' => 'Add',
-                        'route' => 'zfcadmin/file',
-                        'action' => 'add',
-                    ),
-                    array(
                         'label' => 'Edit',
                         'route' => 'zfcadmin/file',
                         'action' => 'edit',
@@ -62,9 +57,7 @@ return array(
     'bjyauthorize' => array(
         'guards' => array(
             'BjyAuthorize\Guard\Controller' => array(
-                array('controller' => 'File\Controller\File', 'action' => array('add'), 'roles' => array('user')),
-                array('controller' => 'File\Controller\File', 'action' => array('index', 'edit', 'delete'),
-                    'roles' => array('admin')),
+                array('controller' => 'File\Controller\File', 'roles' => array('admin')),
             ),
         ),
     ),
