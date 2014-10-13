@@ -32,7 +32,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface, Se
         return array(
             'factories' => array(
                 'Upload\Options\ModuleOptions' => 'Upload\Factory\ModuleOptionsFactory',
-                'Upload\Adapter\Http' => 'Upload\Factory\HttpFactory',
+                'Upload\Adapter\UploadHttp' => 'Upload\Factory\UploadHttpFactory',
             )
         );
     }

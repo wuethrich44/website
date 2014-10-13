@@ -7,7 +7,7 @@ use Zend\Validator\File\Extension;
 use Zend\Filter\File\Rename;
 use Zend\File\Transfer\Adapter\Http;
 
-class Http extends Http
+class UploadHttp extends Http
 {
 
     public function __construct($moduleOptions, $options = array())

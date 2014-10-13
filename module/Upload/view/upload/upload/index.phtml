@@ -28,7 +28,7 @@ echo $this->headLink()->prependStylesheet($this->basePath() . '/css/dropzone.css
     </div>
 
     <div class="fallback">
-        <input name="file" type="file" multiple />
+        <?= $this->formRow($form->get('file')) ?>
     </div>
 
     <?= $this->form()->closeTag() ?>

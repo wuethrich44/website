@@ -7,6 +7,7 @@ use File\Model\File;
 
 class UploadController extends AbstractActionController
 {
+    protected $fileTable;
 
     public function indexAction()
     {
@@ -15,8 +16,6 @@ class UploadController extends AbstractActionController
         $request = $this->getRequest();
 
         if ($request->isPost()) {
-            $file = new File();
-
             $data = array_merge_recursive(
                 $this->getRequest()->getPost()->toArray(),
                 $this->getRequest()->getFiles()->toArray()
@@ -24,18 +23,9 @@ class UploadController extends AbstractActionController
 
             $form->setData($data);
 
-            $adapter = $this->getServiceLocator()->get('Upload\Adapter\Http');
+            $adapter = $this->getServiceLocator()->get('Upload\Adapter\UploadHttp');
 
-            if (!$adapter->isValid()) {
-                $dataError = $adapter->getMessages();
-                array_merge($dataError, $adapter->getErrors());
-                foreach ($dataError as $key => $row) {
-                    echo $row;
-                }
-
-                header('HTTP/1.1 500 Internal Server Error');
-                exit();
-            } else {
+            if ($adapter->isValid() && $form->isValid()) {
                 if ($adapter->receive()) {
                     $subjectID          = $data['subject'];
                     $categoryID         = $data['category'];
@@ -47,6 +37,7 @@ class UploadController extends AbstractActionController
                     } else {
                         $dbdata['url'] = basename($filename);
                     }
+                    $file = new File();
 
                     $file->exchangeArray($dbdata);
 
@@ -55,7 +46,20 @@ class UploadController extends AbstractActionController
 
                     header('HTTP/1.1 200 OK');
                     exit();
+                } else {
+                    header('HTTP/1.1 500 Internal Server Error');
+                    exit();
                 }
+            } else {
+                $dataError = $adapter->getMessages();
+                array_merge($dataError, $adapter->getErrors());
+                array_merge($dataError, $form->getMessages());
+                foreach ($dataError as $key => $row) {
+                    echo $row;
+                }
+
+                header('HTTP/1.1 500 Internal Server Error');
+                exit();
             }
         }
 

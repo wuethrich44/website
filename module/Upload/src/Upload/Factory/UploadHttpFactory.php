@@ -4,15 +4,15 @@ namespace Upload\Factory;
 
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
-use Upload\Adapter\Http;
+use Upload\Adapter\UploadHttp;
 
-class HttpFactory implements FactoryInterface
+class UploadHttpFactory implements FactoryInterface
 {
 
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $options = $serviceLocator->get('Upload\Options\ModuleOptions');
 
-        return new Http($options);
+        return new UploadHttp($options);
     }
 }

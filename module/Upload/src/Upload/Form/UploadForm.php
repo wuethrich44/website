@@ -37,5 +37,11 @@ class UploadForm extends Form
                     'label' => 'Kategorie'
                 )
         ));
+
+        $this->add(
+            array(
+                'name' => 'file',
+                'type' => 'File',
+        ));
     }
 }
