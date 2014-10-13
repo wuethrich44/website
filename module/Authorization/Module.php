@@ -2,8 +2,25 @@
 
 namespace Authorization;
 
-class Module
+use Zend\ModuleManager\Feature\BootstrapListenerInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\EventManager\EventInterface;
+
+class Module implements BootstrapListenerInterface, ConfigProviderInterface, AutoloaderProviderInterface
 {
+
+    public function onBootstrap(EventInterface $e)
+    {
+        $sm = $e->getApplication()->getServiceManager();
+
+        $authorize = $sm->get('BjyAuthorizeServiceAuthorize');
+        $acl       = $authorize->getAcl();
+        $role      = $authorize->getIdentity();
+
+        \Zend\View\Helper\Navigation::setDefaultAcl($acl);
+        \Zend\View\Helper\Navigation::setDefaultRole($role);
+    }
 
     public function getConfig()
     {
@@ -19,17 +36,5 @@ class Module
                 ),
             ),
         );
-    }
-
-    public function onBootstrap($e)
-    {
-        $sm = $e->getApplication()->getServiceManager();
-
-        $authorize = $sm->get('BjyAuthorizeServiceAuthorize');
-        $acl       = $authorize->getAcl();
-        $role      = $authorize->getIdentity();
-
-        \Zend\View\Helper\Navigation::setDefaultAcl($acl);
-        \Zend\View\Helper\Navigation::setDefaultRole($role);
     }
 }
