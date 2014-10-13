@@ -99,21 +99,6 @@ class CategoryTable {
     }
 
     /**
-     * Return an array for the select form input element
-     *
-     * @return array
-     */
-    public function getCategoriesForSelect() {
-        $categories = $this->fetchAll();
-        $array = array();
-        foreach ($categories as $category) {
-            $array[$category->categoryID] = $category->name;
-        }
-
-        return $array;
-    }
-
-    /**
      * Save (insert or update) a category object
      * 
      * @param Category $category

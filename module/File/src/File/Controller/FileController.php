@@ -18,15 +18,7 @@ class FileController extends AbstractActionController {
     }
 
     public function addAction() {
-        $form = new UploadForm();
-
-        $optionSubject = $this->getSubjectTable()->getSubjectsForSelect();
-
-        $form->get('subject')->setAttribute('options', $optionSubject);
-
-        $optionCategory = $this->getCategoryTable()->getCategoriesForSelect();
-
-        $form->get('category')->setAttribute('options', $optionCategory);
+        $form = $this->getServiceLocator()->get('FormElementManager')->get('File\Form\UploadForm');
 
         $request = $this->getRequest();
 

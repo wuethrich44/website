@@ -4,40 +4,38 @@ namespace File\Form;
 
 use Zend\Form\Form;
 
-class UploadForm extends Form {
+class UploadForm extends Form
+{
 
-    public function __construct($name = null) {
-        parent::__construct('Upload');
-
-        // Damit Fileupload mit jQuery funktioniert
+    public function init()
+    {
         $this->setAttribute('data-ajax', 'false');
         $this->setAttribute('class', 'dropzone');
 
         $this->add(
-                array(
-                    'name' => 'subject',
-                    'type' => 'Zend\Form\Element\Select',
-                    'attributes' => array(
-                        'class' => 'form-control',
-                        'id' => 'subject',
-                    ),
-                    'options' => array(
-                        'label' => 'Modul'
-                    )
+            array(
+                'name' => 'subject',
+                'type' => 'SubjectSelect',
+                'attributes' => array(
+                    'class' => 'form-control',
+                    'id' => 'subject',
+                ),
+                'options' => array(
+                    'label' => 'Modul'
+                )
         ));
 
         $this->add(
-                array(
-                    'name' => 'category',
-                    'type' => 'Zend\Form\Element\Select',
-                    'attributes' => array(
-                        'class' => 'form-control',
-                        'id' => 'category',
-                    ),
-                    'options' => array(
-                        'label' => 'Kategorie'
-                    )
+            array(
+                'name' => 'category',
+                'type' => 'CategorySelect',
+                'attributes' => array(
+                    'class' => 'form-control',
+                    'id' => 'category',
+                ),
+                'options' => array(
+                    'label' => 'Kategorie'
+                )
         ));
     }
-
 }

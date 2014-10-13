@@ -2,7 +2,9 @@
 
 namespace File;
 
-class Module {
+use Zend\ModuleManager\Feature\FormElementProviderInterface;
+
+class Module implements FormElementProviderInterface {
 
     public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
@@ -34,4 +36,12 @@ class Module {
         );
     }
 
+    public function getFormElementConfig() {
+        return array(
+            'factories' => array(
+                'SubjectSelect' => 'File\Form\Factory\SubjectSelectFactory',
+                'CategorySelect' => 'File\Form\Factory\CategorySelectFactory',
+            ),
+        );
+    }
 }

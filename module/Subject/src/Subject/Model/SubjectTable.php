@@ -92,22 +92,6 @@ class SubjectTable {
     }
 
     /**
-     * Return an array for the select form input element
-     *
-     * @return array
-     */
-    public function getSubjectsForSelect() {
-        $subjects = $this->fetchAll();
-        $array = array();
-        foreach ($subjects as $subject) {
-            $array[$subject->subjectID] = $subject->name . ' | ' .
-                    $subject->abbreviation;
-        }
-
-        return $array;
-    }
-
-    /**
      * Save (insert or update) a subject object
      *
      * @param Subject $subject            
