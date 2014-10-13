@@ -2,26 +2,33 @@
 
 namespace File;
 
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\FormElementProviderInterface;
 
-class Module implements FormElementProviderInterface {
+class Module implements ConfigProviderInterface, AutoloaderProviderInterface, ServiceProviderInterface, FormElementProviderInterface
+{
 
-    public function getConfig() {
-        return include __DIR__ . '/config/module.config.php';
+    public function getConfig()
+    {
+        return include __DIR__.'/config/module.config.php';
     }
 
-    public function getAutoloaderConfig() {
+    public function getAutoloaderConfig()
+    {
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' .
+                    __NAMESPACE__ => __DIR__.'/src/'.
                     __NAMESPACE__
                 )
             )
         );
     }
 
-    public function getServiceConfig() {
+    public function getServiceConfig()
+    {
         return array(
             'invokables' => array(
                 'File\Model\File' => 'File\Model\File'
@@ -36,7 +43,8 @@ class Module implements FormElementProviderInterface {
         );
     }
 
-    public function getFormElementConfig() {
+    public function getFormElementConfig()
+    {
         return array(
             'factories' => array(
                 'SubjectSelect' => 'File\Form\Factory\SubjectSelectFactory',
